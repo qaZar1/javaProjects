@@ -6,6 +6,9 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import servlets.AllRequestsServlet;
 import servlets.MirrorServlet;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * @author v.chibrikov
  *         <p>
@@ -22,11 +25,11 @@ public class Main {
         context.addServlet(new ServletHolder(allRequestsServlet), "/*");
         context.addServlet(new ServletHolder(mirrorServlet), "/mirror");
 
-        Server server = new Server(8081);
+        Server server = new Server(8080);
         server.setHandler(context);
 
         server.start();
         server.join();
-        System.out.println("Server started!");
+        allRequestsServlet.log("Server started");
     }
 }
