@@ -22,11 +22,11 @@ public class Main {
         context.addServlet(new ServletHolder(allRequestsServlet), "/*");
         context.addServlet(new ServletHolder(mirrorServlet), "/mirror");
 
-        Server server = new Server(8081);
+        Server server = new Server(8080);
         server.setHandler(context);
 
         server.start();
         server.join();
-        System.out.println("Server started!");
+        allRequestsServlet.log("Server started");
     }
 }

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MirrorServlet extends HttpServlet {
 
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String key = req.getParameter("key");
 
@@ -19,9 +18,7 @@ public class MirrorServlet extends HttpServlet {
         }
 
         // Формирование ответа
-        String content = "<html><body>\n" +
-                "<h1>" + key + "</h1>\n" +
-                "</body></html>";
+        String content = "<html><body>\n" + key +  "</body></html>";
 
         // Отправка ответа
         resp.setContentType("text/html");
